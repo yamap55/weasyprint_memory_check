@@ -1,0 +1,11 @@
+FROM python:3.12.3
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    python3-cffi \
+    python3-brotli \
+    libpango-1.0-0 \
+    libpangoft2-1.0-0 \
+    fonts-noto-cjk
+RUN pip install --no-cache-dir weasyprint==61.2 memory_profiler==0.61.0
+
+WORKDIR /app

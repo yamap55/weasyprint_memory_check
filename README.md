@@ -5,7 +5,7 @@
 - This repository checks the memory usage when converting HTML containing multibyte characters to PDF using [weasyprint](https://github.com/Kozea/WeasyPrint) .
 - For measuring memory, we use [memory_profiler](https://github.com/pythonprofilers/memory_profiler).
 
-## Overview( Japanese )
+## Overview (Japanese)
 
 - このリポジトリは [weasyprint](https://github.com/Kozea/WeasyPrint) を使用してマルチバイトの文字列を含む HTML を PDF に変換した際のメモリ使用量を確認するリポジトリです
 - メモリ計測のため [memory_profiler](https://github.com/pythonprofilers/memory_profiler) を使用しています
@@ -18,6 +18,18 @@ Replace `<full-path-to-your-local-directory>` with the full path to the director
 
 ```
 git clone git@github.com:yamap55/weasyprint_memory_check.git
+```
+
+- Python 3.9.7
+
+```
+docker build -t weasyprint_memory_check_312 -f ./Dockerfile_python312 .
+docker run -v <full-path-to-your-local-directory>:/app -it weasyprint_memory_check_312 /bin/bash
+```
+
+- Python 3.12.3(latest)
+
+```
 docker build -t weasyprint_memory_check .
 docker run -v <full-path-to-your-local-directory>:/app -it weasyprint_memory_check /bin/bash
 ```
@@ -79,3 +91,5 @@ Line #    Mem usage    Increment  Occurrences   Line Contents
     12    272.8 MiB     36.0 MiB           1       generate(file_path)
     13    272.8 MiB      0.0 MiB           1       return True
 ```
+
+The issue also occurs with the latest version of Python (3.12.3).
